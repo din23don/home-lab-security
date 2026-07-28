@@ -1,4 +1,5 @@
 # home-lab-security
+
 ## Overview
 This project documents my personal cybersecurity home lab built for learning Linux administration, networking and security fundamentals.
 The lab is created using:
@@ -6,6 +7,7 @@ The lab is created using:
 - Ubuntu Server
 - Kali Linux
 - Windows 11 (host system)
+- 
 ## Current Lab Architecture
 
 ## Goals
@@ -36,3 +38,51 @@ The lab is created using:
 ## Screenshots
 
 Screenshots and documentation will be added as the lab develops.
+
+# Linux Home Lab
+
+## Description 
+
+This project contains a virtual Linux laboratory built using VirtualBox.
+
+The Lab:
+
+- Ubuntu Server as server machine
+- Kali Linux as a testing machine
+- SSH remote access
+- Network configuration
+- User and permission managment
+- System logs analysis
+
+## Enviroment
+
+Virtual machine:
+
+- Ubuntu Server
+- Kali Linux
+
+Virtualization:
+
+- VirtualBox
+
+Network:
+
+- NAT for internet access
+- Host-only Network for laboratory communication
+
+## Completed tasks
+
+✔️ Ubuntu server instalation
+✔️ Kali Linux instalation
+✔️ VirtualBox configuration
+✔️ SSH configuration
+✔️ SSH connection from Kali to Ubuntu
+✔️ User managment
+✔️ File permissions
+✔️ System logs chscking
+✔️ Nmap network scan
+
+
+
+
+
