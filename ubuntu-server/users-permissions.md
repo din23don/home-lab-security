@@ -63,3 +63,20 @@ sudo chown analyst security_test.txt
 - Using chmod
 - Using chown
 
+## Examples
+
+Directory:
+
+```text
+drwxr-xr-x root root
+```
+
+Owner has full permission:
+
+Private file:
+
+-rw------- labuser labuser
+
+Only owner can reed and modify the file.
+
+
