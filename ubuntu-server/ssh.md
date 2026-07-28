@@ -53,3 +53,42 @@ ip a
 
 Screenshoots  showing SSH configuration will be added to this section.
 
+# SSH access to ubuntu server
+
+## Lab setup
+
+machine:
+
+- Kali Linux (testing machine)
+- Ubuntu Server (target server)
+
+## Network
+
+Ubuntu Server Host-Only IP:
+
+192.168.56.101
+
+## SSH connection
+
+From Kali Linux:
+
+```bash
+ssh labuser@192.168.56.101
+```
+
+## Successful connection:
+
+```bash
+labuser@192.168.56.101
+```
+## Verification
+
+SSH server status:
+
+```bash
+sudo systemctl status ssh
+```
+Result:
+
+SSH service is active and running.
+
