@@ -117,12 +117,49 @@ Protection features:
 - detects failed login attempts
 - automatically blocks suspicious IP addresses
 
----
-
 
 ## Conclusion
 
 Fail2ban adds an additional security layer to Ubuntu Server.
 
 Together with UFW firewall, it provides protection against unauthorized SSH login attempts.
+
+
+## Fail2ban Testing
+
+Fail2ban was tested from Kali Linux.
+
+Multiple incorrect SSH login attempts were made:
+
+
+```bash
+ssh labuser@192.168.56.101
+```
+
+After several failed login attempts, Fail2ban detected suspicious activity and blocked the Kali IP address.
+
+The ban status was checked on Ubuntu Server:
+
+```bash
+sudo fail2ban-client status sshd
+```
+
+Result:
+
+```
+Currently banned: 1
+Banned IP list:
+192.168.56.xxx
+```
+
+This confirmed that Fail2ban successfully protected the SSH service from repeated failed login attempts.
+
+The Kali IP was then unbanned:
+
+
+```bash
+sudo fail2ban-client set sshd unbanip IP_ADDRESS
+```
+
+After unban, SSH access was restored.
 
