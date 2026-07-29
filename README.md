@@ -4,29 +4,20 @@
 
 This project is a personal Linux home laboratory created for learning Linux administration, networking, SSH, security basics and system documentation.
 
-The laboratory contains two virtual machines:
+## Environment
 
-- Ubuntu Server — main server
-- Kali Linux — testing and security analysis machine
-
-Virtualization platform:
-
+- Ubuntu Server
+- Kali Linux
 - VirtualBox
-
----
+- NAT + Host-only Network
+- SSH
 
 # Lab Architecture
 
 ```
 Host Machine
-
-|
 VirtualBox Network
-
-----------------------------
-
 Ubuntu Server Kali Linux
-
 Server VM Testing VM
 
 NAT NAT
@@ -36,7 +27,6 @@ Host-only Host-only
 192.168.56.101 <-------> Kali
 ```
 
----
 
 # Technologies Used
 
@@ -50,7 +40,6 @@ Host-only Host-only
 - Wireshark
 - GitHub Documentation
 
----
 
 # Completed Tasks
 
@@ -73,237 +62,76 @@ enp0s8:
 192.168.56.101
 ```
 
----
+## Completed Tasks
 
-# SSH Configuration
+### Linux Administration
 
-Configured remote administration using SSH.
+- User management
+- File permissions
+- System logs
 
-Connection test from Kali:
+### Networking
 
-```bash
-ssh labuser@192.168.56.101
-```
+- SSH
+- Ping
+- Nmap
+- Wireshark
 
-Result:
+### Security
 
-- SSH connection successful
-
-Documentation:
-
-```
-ubuntu-server/ssh.md
-```
-
----
-
-# Linux Users and Permissions
-
-Performed Linux administration tasks:
-
-Checked groups:
-
-```bash
-groups
-```
-
-Checked sudo permissions:
-
-```bash
-sudo -l
-```
-
-Studied:
-
-- users
-- groups
-- file permissions
-- ownership
-
-Documentation:
-
-```
-ubuntu-server/users.md
-ubuntu-server/permissions.md
-```
-
----
-
-# System Logs
-
-Analyzed Linux logs:
-
-Commands used:
-
-```bash
-journalctl -n 20
-```
-
-```bash
-sudo journalctl -u ssh
-```
-
-```bash
-last
-```
-
-Documentation:
-
-```
-ubuntu-server/logs.md
-```
-
----
-
-# Network Testing
-
-## Nmap
-
-Performed network scanning from Kali Linux:
-
-```bash
-nmap 192.168.56.101
-```
-
-Detected:
-
-```
-22/tcp open ssh
-```
-
----
-
-# Wireshark
-
-Captured network traffic between Kali Linux and Ubuntu Server.
-
-Tests performed:
-
-ICMP:
-
-```bash
-ping 192.168.56.101
-```
-
-SSH traffic:
-
-```bash
-ssh labuser@192.168.56.101
-```
-
-Documentation:
-
-```
-ubuntu-server/wireshark.md
-```
-
----
-
-# Firewall Configuration
-
-Configured Ubuntu firewall using UFW.
-
-Installed:
-
-```bash
-sudo apt install ufw -y
-```
-
-Allowed SSH:
-
-```bash
-sudo ufw allow ssh
-```
-
-Enabled firewall:
-
-```bash
-sudo ufw enable
-```
-
-Added HTTP access for Apache testing:
-
-```bash
-sudo ufw allow http
-```
-
-Verified using:
-
-```bash
-nmap 192.168.56.101
-```
-
-Allowed services:
-
-```
-22/tcp SSH
-80/tcp HTTP
-```
-
-Documentation:
-
-```
-ubuntu-server/firewall.md
-```
-
----
-
-# Repository Structure
-
-```
-HomeLab/
-
-├── README.md
-
-├── ubuntu-server/
-
-│ ├── setup.md
-│ ├── ssh.md
-│ ├── users.md
-│ ├── permissions.md
-│ ├── logs.md
-│ ├── wireshark.md
-│ └── firewall.md
-
-└── screenshots/
-
-├── ssh.png
-├── nmap.png
-├── permissions.png
-├── logs.png
-├── wireshark.png
-├── ufw-status.png
-├── apache-status.png
-├── ufw-nmap.png
-└── firewall-http-test.png
-```
-
----
-
-# Skills Practiced
-
-During this project I practiced:
-
-- Linux server installation
-- Virtual networking
-- SSH administration
-- User and permission management
-- Log analysis
-- Network scanning
-- Packet analysis
-- Firewall configuration
-- Technical documentation
-
----
-
-# Future Improvements
-
-Planned next steps:
-
+- UFW Firewall configuration
 - Fail2ban installation
-- Docker deployment
-- Web server configuration
-- Bash automation scripts
-- System monitoring
-- Additional security testing
+- SSH brute-force attack testing from Kali Linux
+- Automatic IP blocking and unbanning
 
+### Containers
+
+- Docker installation
+- Running an Nginx container
+- Verifying web access from Kali Linux
+
+### Automation
+
+- Bash backup script
+- Automatic backups using Cron
+
+## Repository Structure
+
+```text
+HomeLab/
+│
+├── README.md
+├── ubuntu-server/
+└── screenshots/
+```
+
+---
+
+## Documentation
+
+- setup.md
+- ssh.md
+- users-permissions.md
+- permissions.md
+- logs.md
+- wireshark.md
+- firewall.md
+- fail2ban.md
+- docker.md
+- bash-automation.md
+- cron.md
+
+## Skills Practiced
+
+- Linux Administration
+- Networking
+- SSH
+- Firewall Management
+- Fail2ban
+- Docker
+- Bash Scripting
+- Cron Automation
+
+## Author
+
+This Home Lab was created as a personal learning project to develop practical Linux system administration skills.
