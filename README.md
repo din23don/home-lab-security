@@ -1,88 +1,309 @@
 # home-lab-security
 
-## Overview
-This project documents my personal cybersecurity home lab built for learning Linux administration, networking and security fundamentals.
-The lab is created using:
-- VirtualBox
-- Ubuntu Server
-- Kali Linux
-- Windows 11 (host system)
-- 
-## Current Lab Architecture
+## Project Overview
 
-## Goals
-- Practice Linux server administation
-- Configure SSH remote access
-- Manage user and permissions
-- Analyze system logs
-- Learn network troubleshooting
-- Practice security tools
+This project is a personal Linux home laboratory created for learning Linux administration, networking, SSH, security basics and system documentation.
 
-## Completed tasks 
+The laboratory contains two virtual machines:
 
-### Ubuntu Server
+- Ubuntu Server — main server
+- Kali Linux — testing and security analysis machine
 
-✔️ Installed Ubuntu Server and groups
-✔️ Configured VirtualBox networking
-✔️ Updated system packeges
-✔️ Verified internet connectivity
-
-## Next steps
-- Configure SSH
-- Create Linux users and groups
-- Practice file permissions
-- Analyze authentication logs
-- Install Kali Linux
-- Perform network analysis with Nmap and Wireshark
-
-## Screenshots
-
-Screenshots and documentation will be added as the lab develops.
-
-# Linux Home Lab
-
-## Description 
-
-This project contains a virtual Linux laboratory built using VirtualBox.
-
-The Lab:
-
-- Ubuntu Server as server machine
-- Kali Linux as a testing machine
-- SSH remote access
-- Network configuration
-- User and permission managment
-- System logs analysis
-
-## Enviroment
-
-Virtual machine:
-
-- Ubuntu Server
-- Kali Linux
-
-Virtualization:
+Virtualization platform:
 
 - VirtualBox
 
-Network:
+---
 
-- NAT for internet access
-- Host-only Network for laboratory communication
+# Lab Architecture
 
-## Completed tasks
+```
+Host Machine
 
-✔️ Ubuntu server instalation
-✔️ Kali Linux instalation
-✔️ VirtualBox configuration
-✔️ SSH configuration
-✔️ SSH connection from Kali to Ubuntu
-✔️ User managment
-✔️ File permissions
-✔️ System logs chscking
-✔️ Nmap network scan
+|
+VirtualBox Network
 
+----------------------------
 
+Ubuntu Server Kali Linux
 
+Server VM Testing VM
 
+NAT NAT
+10.0.2.15 Internet
+
+Host-only Host-only
+192.168.56.101 <-------> Kali
+```
+
+---
+
+# Technologies Used
+
+- Ubuntu Server
+- Kali Linux
+- VirtualBox
+- SSH
+- Netplan
+- UFW Firewall
+- Nmap
+- Wireshark
+- GitHub Documentation
+
+---
+
+# Completed Tasks
+
+## Virtual Machine Setup
+
+Completed:
+
+- Created Ubuntu Server VM
+- Created Kali Linux VM
+- Configured VirtualBox networking
+- Configured Host-only communication
+
+Ubuntu network:
+
+```
+enp0s3:
+10.0.2.15
+
+enp0s8:
+192.168.56.101
+```
+
+---
+
+# SSH Configuration
+
+Configured remote administration using SSH.
+
+Connection test from Kali:
+
+```bash
+ssh labuser@192.168.56.101
+```
+
+Result:
+
+- SSH connection successful
+
+Documentation:
+
+```
+ubuntu-server/ssh.md
+```
+
+---
+
+# Linux Users and Permissions
+
+Performed Linux administration tasks:
+
+Checked groups:
+
+```bash
+groups
+```
+
+Checked sudo permissions:
+
+```bash
+sudo -l
+```
+
+Studied:
+
+- users
+- groups
+- file permissions
+- ownership
+
+Documentation:
+
+```
+ubuntu-server/users.md
+ubuntu-server/permissions.md
+```
+
+---
+
+# System Logs
+
+Analyzed Linux logs:
+
+Commands used:
+
+```bash
+journalctl -n 20
+```
+
+```bash
+sudo journalctl -u ssh
+```
+
+```bash
+last
+```
+
+Documentation:
+
+```
+ubuntu-server/logs.md
+```
+
+---
+
+# Network Testing
+
+## Nmap
+
+Performed network scanning from Kali Linux:
+
+```bash
+nmap 192.168.56.101
+```
+
+Detected:
+
+```
+22/tcp open ssh
+```
+
+---
+
+# Wireshark
+
+Captured network traffic between Kali Linux and Ubuntu Server.
+
+Tests performed:
+
+ICMP:
+
+```bash
+ping 192.168.56.101
+```
+
+SSH traffic:
+
+```bash
+ssh labuser@192.168.56.101
+```
+
+Documentation:
+
+```
+ubuntu-server/wireshark.md
+```
+
+---
+
+# Firewall Configuration
+
+Configured Ubuntu firewall using UFW.
+
+Installed:
+
+```bash
+sudo apt install ufw -y
+```
+
+Allowed SSH:
+
+```bash
+sudo ufw allow ssh
+```
+
+Enabled firewall:
+
+```bash
+sudo ufw enable
+```
+
+Added HTTP access for Apache testing:
+
+```bash
+sudo ufw allow http
+```
+
+Verified using:
+
+```bash
+nmap 192.168.56.101
+```
+
+Allowed services:
+
+```
+22/tcp SSH
+80/tcp HTTP
+```
+
+Documentation:
+
+```
+ubuntu-server/firewall.md
+```
+
+---
+
+# Repository Structure
+
+```
+HomeLab/
+
+├── README.md
+
+├── ubuntu-server/
+
+│ ├── setup.md
+│ ├── ssh.md
+│ ├── users.md
+│ ├── permissions.md
+│ ├── logs.md
+│ ├── wireshark.md
+│ └── firewall.md
+
+└── screenshots/
+
+├── ssh.png
+├── nmap.png
+├── permissions.png
+├── logs.png
+├── wireshark.png
+├── ufw-status.png
+├── apache-status.png
+├── ufw-nmap.png
+└── firewall-http-test.png
+```
+
+---
+
+# Skills Practiced
+
+During this project I practiced:
+
+- Linux server installation
+- Virtual networking
+- SSH administration
+- User and permission management
+- Log analysis
+- Network scanning
+- Packet analysis
+- Firewall configuration
+- Technical documentation
+
+---
+
+# Future Improvements
+
+Planned next steps:
+
+- Fail2ban installation
+- Docker deployment
+- Web server configuration
+- Bash automation scripts
+- System monitoring
+- Additional security testing
 
