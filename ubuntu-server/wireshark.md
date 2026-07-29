@@ -12,7 +12,9 @@ Host-Only Network
 
 Ubuntu Server IP:
 
+```text
 192.168.56.101
+```
 
 Kali Linux connects to Ubuntu through this network.
 
@@ -30,4 +32,23 @@ Commands used:
 ```bash
 ping 192.168.56.101
 ```
+
+## Display filters
+
+ICMP:
+
+```text
+icmp
+```
+
+SSH:
+
+```text
+tcp.port
+```
+
+## Resault 
+
+Wireshark successfully captured ICMP and SSH between Kali Linux and Ubuntu Server.
+
 
